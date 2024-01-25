@@ -7,6 +7,7 @@ import {
   FlatList,
   StyleSheet,
 } from "react-native";
+import { Alert } from "react-native";
 
 const App = () => {
   const [task, setTask] = useState("");
@@ -17,10 +18,26 @@ const App = () => {
   const handleAppTask = () => {
     if (task) {
       if (editIndex !== -1) {
-        const updateTasks = [...tasks];
-        updateTasks[editIndex] = task;
-        setTasks(updateTasks);
-        setEditIndex(-1);
+        Alert.alert(
+          'Success',
+          'Updated..!',
+          [
+            {
+              text: 'Ok',
+              onPress: () => {
+                const updateTasks = [...tasks];
+                updateTasks[editIndex] = task;
+                setTasks(updateTasks);
+                setEditIndex(-1);
+              },
+            },
+            {
+              text: 'Cancle',
+              onPress: () => console.log('Updated'),
+              style: 'update',
+            },
+          ],
+        );
       } else {
         setTasks([...tasks, task]);
       }
@@ -33,14 +50,32 @@ const App = () => {
     const taskToEdit = tasks[index];
     setTask(taskToEdit);
     setEditIndex(index);
+
   };
 
-  //Function of henadle delect task
-  const handleDelectTask = (index) => {
-    const updateTasks = [...tasks];
-    updateTasks.splice(index, 1);
-    setTasks(updateTasks);
-  }
+  //Function of henadle delete task
+  const handleDeleteTask = (index) => {
+
+    Alert.alert(
+      'Confirmation',
+      'Are you sure you want to delete this task?', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {
+        text: 'Delete',
+        onPress: () => {
+          const updateTasks = [...tasks];
+          updateTasks.splice(index, 1);
+          setTasks(updateTasks);
+        },
+      },
+    ],
+      { cancelable: false }
+    );
+  };
 
   const renderItem = ({ item, index }) => (
     <View style={styles.task}>
@@ -60,7 +95,7 @@ const App = () => {
 
         {/* Delect Button */}
         <TouchableOpacity
-          onPress={() => handleDelectTask(index)}>
+          onPress={() => handleDeleteTask(index)}>
           <Text style={styles.deleteButton}>Delete</Text>
         </TouchableOpacity>
 
