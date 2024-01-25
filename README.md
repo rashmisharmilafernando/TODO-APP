@@ -18,5 +18,5 @@ TaskTrackr is a simple React Native application for tracking your tasks. Easily 
 -  Press "Edit" to modify an existing task.
 -  Press "Delete" to remove a task from the list.
 
- [Untitled](https://github.com/rashmisharmila/TODO-APP/assets/108237108/423788b4-8c06-4879-b831-3e8db10efc6c)
+
 
