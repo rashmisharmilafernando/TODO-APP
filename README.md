@@ -20,5 +20,5 @@ TaskTrackr is a simple React Native application for tracking your tasks. Easily 
 
 
 
-![Untitled](https://github.com/rashmisharmila/TODO-APP/assets/108237108/3736b65f-07f9-4990-a5db-98024a4c6030)
+![Untitled](https://github.com/rashmisharmila/TODO-APP/assets/108237108/88a91657-5246-4146-bea6-376c24463b8c)
 
