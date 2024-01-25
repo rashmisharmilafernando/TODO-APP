@@ -8,8 +8,6 @@ import {
   StyleSheet,
 } from "react-native";
 
-
-
 const App = () => {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
