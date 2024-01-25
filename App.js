@@ -15,7 +15,7 @@ const App = () => {
   const [taskes,setTasks]=useState([]);
   const[editIndex,setEditIndex]=useState(-1);
   
-  //Add and update
+  //function of handle Add task 
   const handleAppTask=()=>{
     if(task){
       if(editIndex !==-1){
@@ -30,9 +30,15 @@ const App = () => {
     }
   };
 
-  //
+  //function of handle Edit task 
+  const handleEditTask=(index)=>{
+    const taskToEdit=tasks[index];
+    setTask(taskToEdit);
+    setEditIndex(index);
+  };
 
-  
+  //Function of henadle delect task
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>TaskTrackr</Text>
